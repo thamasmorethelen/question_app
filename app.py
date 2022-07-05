@@ -123,7 +123,7 @@ def ask():
 
     if request.method == 'POST':
         db.execute('''INSERT INTO question (question_text, asked_by_id, expert_id)
-                      VALUES (%s, %s, %s, )''', (request.form['question'], user['id'], request.form['expert'], ))
+                      VALUES (%s, %s, %s )''', (request.form['question'], user['id'], request.form['expert']))
 
         return redirect(url_for('index'))
     db.execute('SELECT id, name FROM users WHERE expert = True')
