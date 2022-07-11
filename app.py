@@ -85,7 +85,7 @@ def login():
 def question(question_id):
     user = get_current_user()
     db = get_db()
-    db.execute('''SELECT question.id as question_id,
+    db.execute('''SELECT
                                  question.question_text, question.answer_text,
                                  question.asked_by_id, question.expert_id ,
                                  askers.name as asker_name, expert_list.name
