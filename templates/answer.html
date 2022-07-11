@@ -1,5 +1,6 @@
 
     {% extends 'layout.html' %}
+    {% from 'show_links.html' import show_links %}
     {% block title %}Answer Question{% endblock %}
     {% block nav %}
     {{ show_links(user) }}
