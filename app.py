@@ -85,15 +85,14 @@ def login():
 def question(question_id):
     user = get_current_user()
     db = get_db()
-    db.execute('''SELECT
+    db.execute('''SELECT         question.id,
                                  question.question_text, question.answer_text,
-                                 question.asked_by_id, question.expert_id ,
                                  askers.name as asker_name, expert_list.name
                                  as expert_name FROM question JOIN users
                                  as askers ON question.asked_by_id = askers.id
                                  JOIN users as expert_list ON
                                  question.expert_id = expert_list.id
-                                 WHERE question_id = %s ''', (question_id, ))
+                                 WHERE question.id = %s ''', (question_id, ))
     question = db.fetchone()
     return render_template('question.html', user=user, question=question)
 
@@ -180,4 +179,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
