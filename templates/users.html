@@ -1,5 +1,8 @@
 {% extends 'layout.html' %}
 {% block title %}Users{% endblock %}
+{% block nav %}
+{{ show_links(user) }}
+{% endblock %}
 {% block content %}
     <div class="container theme-showcase" role="main">
 

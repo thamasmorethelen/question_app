@@ -30,6 +30,6 @@ def init_db():
 
 def init_admin():
     db = connect_db()
-    db[1].execute('UPDATE users set admin = True WHERE name = %s', ('Thamas', ))
+    db[1].execute('UPDATE users SET admin = True WHERE name = %s', ('Thamas', ))
     db[1].close()
     db[0].close()
