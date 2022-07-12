@@ -124,7 +124,7 @@ def ask():
         db.execute('''INSERT INTO question (question_text, asked_by_id, expert_id)
                       VALUES (%s, %s, %s )''', (request.form['question'], user['id'], request.form['expert']))
 
-        return redirect(url_for('index'))
+        return redirect(url_for('index', user=user))
     db.execute('SELECT id, name FROM users WHERE expert = True')
     expert_list = db.fetchall()
     return render_template('ask.html', user=user, experts=expert_list)
